@@ -3,18 +3,34 @@ angular.module('codebetter.controllers.createController', [
 	'ui.router'
 ])
 .controller('createController', function($scope, $state, thingsToDoService){
-	$scope.optionsPriority = [
-		'low', 'average', 'high', 'critical'
-	];
-	$scope.thingsService = thingsToDoService;
-	$scope.newTask = {
-		task: null,
-		priority: $scope.optionsPriority[0],
-		note: null,
-		dataRegistered: new Date()
-	};
-	$scope.createTask = function (taskCreated) {
-		$scope.thingsService.createTask(taskCreated);
+	var $this = this;
+
+	$this.initializer = function initializer(){
+		$this.thingsService = thingsToDoService;
+		$this.setOptionsPriority();
+		$this.setScopeFunctions();
+	}
+
+	$this.setOptionsPriority = function setOptionsPriority () {
+		$scope.optionsPriority = [
+			'low', 'average', 'high', 'critical'
+		];
+		$scope.newTask = {
+			task: null,
+			priority: $scope.optionsPriority[0],
+			note: null,
+			dataRegistered: new Date()
+		};
+	}
+
+	$this.setScopeFunctions = function setScopeFunctions(){
+		$scope.createTask = createTask;
+	}
+
+	function createTask (taskCreated) {
+		$this.thingsService.createTask(taskCreated);
 		$state.go('things');
 	};
+
+	return $this.initializer();
 });
