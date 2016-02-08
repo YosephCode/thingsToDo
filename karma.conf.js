@@ -5,6 +5,7 @@ module.exports = function(config) {
     //lista de arquivos padrões a serem carregados no navegador
     files: [
       'node_modules/angular/angular.min.js',
+      // 'node_modules/angular-mocks/angular-mocks.js',
       'controllers/*.js',
       'services/*.js',
       '*.js',

@@ -7,7 +7,7 @@ angular.module('codebetter.controllers.listController', [
 	$this.initializer = function initializer(){
 		$this.thingsService = thingsToDoService;
 		
-		$scope.mode = "toDo";
+		$scope.mode = 'toDo';
 		$scope.state = thingsToDoService.tasks;
 		
 		$this.setScopeFunctions();

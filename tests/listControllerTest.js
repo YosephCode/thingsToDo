@@ -1,24 +1,75 @@
 describe('listController', function() {
-    var $scope;
-    var controller;
+    // Instancia uma nova versão de meu módulo antes de cada teste
+    beforeEach(module('codebetter.controllers.listController'));
+    
+    var ctrl, scope;
+    
+    beforeEach(inject(function($controller, $rootScope){
+        scope = $rootScope.$new();
+        ctrl = $controller('listController', {
+            $scope: scope
+        });
+    }));
 
-    beforeEach(function() {
-    	module('codebetter.controllers.listController');
-    	module('codebetter.services.thingsToDoService');
-        module('codebetter');
-
-
-        inject(function(_$rootScope_, $controller) {
-            $scope = _$rootScope_.$new();
-            controller = $controller('listController', {$scope: $scope});
+    describe('on initializer', function(){
+        beforeEach(function(){
+            ctrl.initializer();
         });
 
+        it('should init thingsService', function(){
+            expect( ctrl.thingsService ).toBeDefined();
+        });
+
+        it('should init state', function(){
+            expect( scope.state ).toBeDefined();
+        });
+
+        it('should init mode', function(){
+            expect( scope.mode ).toEqual('toDo');
+        });
+
+        it('should init setScopeFunctions', function(){
+            expect( ctrl.setScopeFunctions ).toBeDefined();
+        });
     });
-    describe('on call addDone function', function(){
-    	it("should add in the Done list.", function() {
-	    	$scope.addDone();
-	        expect( $scope.addDone ).toHaveBeenCalled();
-	    });
+
+    describe('on function addDone', function(){
+        it('should getTask', function(){
+            var task = {
+                task: 'meu task',
+                priority: 'low',
+                note: 'minha descricao',
+                dataRegistered: '19/04/2016'
+            };
+            spyOn(ctrl.thingsService, 'getTask');
+            scope.addDone(task);
+            expect( ctrl.thingsService.getTask ).toHaveBeenCalledWith( task );
+        });
+
+        it('should addDone', function(){
+            var task = {
+                task: 'meu task',
+                priority: 'low',
+                note: 'minha descricao',
+                dataRegistered: '19/04/2016'
+            };
+            spyOn(ctrl.thingsService, 'addDone');
+            scope.addDone(task);
+            expect( ctrl.thingsService.addDone ).toHaveBeenCalledWith( task );
+        });
+
+        it('should removeToDo', function(){
+            var task = {
+                task: 'meu task',
+                priority: 'low',
+                note: 'minha descricao',
+                dataRegistered: '19/04/2016'
+            };
+            var index = 1;
+
+            spyOn(ctrl.thingsService, 'removeToDo');
+            scope.addDone(task, index);
+            expect( ctrl.thingsService.removeToDo ).toHaveBeenCalledWith( index );
+        });
     });
-    
 });
