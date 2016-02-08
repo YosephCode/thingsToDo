@@ -1,7 +1,7 @@
 angular.module('codebetter.controllers.listController', [
 	'codebetter.services.thingsToDoService'
 ])
-.controller('listController', function($scope, $log, thingsToDoService) {
+.controller('listController', function($scope, thingsToDoService) {
 	var $this = this;
 	
 	$this.initializer = function initializer(){

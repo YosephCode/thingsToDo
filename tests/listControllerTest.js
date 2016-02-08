@@ -34,7 +34,7 @@ describe('listController', function() {
     });
 
     describe('on function addDone', function(){
-        it('should getTask', function(){
+        it('should getTask to Done', function(){
             var task = {
                 task: 'meu task',
                 priority: 'low',
@@ -46,7 +46,7 @@ describe('listController', function() {
             expect( ctrl.thingsService.getTask ).toHaveBeenCalledWith( task );
         });
 
-        it('should addDone', function(){
+        it('should add task to Done', function(){
             var task = {
                 task: 'meu task',
                 priority: 'low',
@@ -58,7 +58,7 @@ describe('listController', function() {
             expect( ctrl.thingsService.addDone ).toHaveBeenCalledWith( task );
         });
 
-        it('should removeToDo', function(){
+        it('should remove task ToDo', function(){
             var task = {
                 task: 'meu task',
                 priority: 'low',
@@ -69,6 +69,15 @@ describe('listController', function() {
 
             spyOn(ctrl.thingsService, 'removeToDo');
             scope.addDone(task, index);
+            expect( ctrl.thingsService.removeToDo ).toHaveBeenCalledWith( index );
+        });
+    });
+
+    describe('on removeToDo', function(){
+        it('should remove task ToDo', function(){
+            spyOn(ctrl.thingsService, 'removeToDo');
+            var index = 2;
+            scope.removeToDo(index);
             expect( ctrl.thingsService.removeToDo ).toHaveBeenCalledWith( index );
         });
     });
