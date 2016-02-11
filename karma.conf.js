@@ -6,7 +6,7 @@ module.exports = function(config) {
     files: [
       'node_modules/angular/angular.min.js',
       'node_modules/ui-router/release/angular-ui-router.js',
-      // 'node_modules/angular-mocks/angular-mocks.js',
+      'node_modules/angular-mocks/angular-mocks.js',
       'public/min/*.js',
       'tests/*.js'
     ],

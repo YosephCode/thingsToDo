@@ -4,7 +4,6 @@ angular.module('codebetter', [
 	'codebetter.controllers.doneController',
 	'codebetter.controllers.createController',
 	'ui.router'
-	// 'ngMock'
 ])
 .config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/#/');
