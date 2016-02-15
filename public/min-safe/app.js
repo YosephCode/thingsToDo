@@ -1,5 +1,4 @@
 angular.module('codebetter', [
-	'codebetter.services.thingsToDoService',
 	'codebetter.controllers.listController',
 	'codebetter.controllers.doneController',
 	'codebetter.controllers.createController',
