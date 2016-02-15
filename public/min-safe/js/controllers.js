@@ -50,16 +50,18 @@ angular.module('codebetter.controllers.doneController', [
 angular.module('codebetter.controllers.listController', [
 	'codebetter.services.thingsToDoService'
 ])
-.controller('listController', ['$scope', 'thingsToDoService', function($scope, thingsToDoService) {
+.controller('listController', ['$scope', '$timeout', 'thingsToDoService', function($scope, $timeout, thingsToDoService) {
 	var $this = this;
 	
 	$this.initializer = function initializer(){
 		$this.thingsService = thingsToDoService;
-		
 		$scope.mode = 'toDo';
-		$scope.state = thingsToDoService.tasks;
 		$this.setScopeFunctions();
-	}
+
+		$timeout(function(){
+			$scope.state = thingsToDoService.tasks;
+		},100);
+	};
 
 	function addDone (task, index) {
 		$this.thingsService.getTask(task);

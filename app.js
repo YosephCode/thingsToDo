@@ -5,7 +5,7 @@ angular.module('codebetter', [
 	'ui.router'
 ])
 .config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise('/#/');
+	$urlRouterProvider.otherwise('/');
 	$stateProvider
 		.state('things', {
 			url:"/",
