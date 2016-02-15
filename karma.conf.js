@@ -26,8 +26,8 @@ module.exports = function(config) {
     //porta do servidor web
     port:3000,
     //inicia esse navegador
-    browser: ['Chrome'],
-    // browser: ['Phantomjs'],
+    // browser: ['Chrome'],
+    browser: ['Phantomjs'],
     singleRun: false
   });
 };

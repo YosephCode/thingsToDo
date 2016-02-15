@@ -9,7 +9,6 @@ angular.module('codebetter.controllers.listController', [
 		
 		$scope.mode = 'toDo';
 		$scope.state = thingsToDoService.tasks;
-		
 		$this.setScopeFunctions();
 	}
 

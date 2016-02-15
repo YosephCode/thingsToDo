@@ -20,10 +20,6 @@ describe('listController', function() {
             expect( ctrl.thingsService ).toBeDefined();
         });
 
-        it('should init state', function(){
-            expect( scope.state ).toBeDefined();
-        });
-
         it('should init mode', function(){
             expect( scope.mode ).toEqual('toDo');
         });
