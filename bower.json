@@ -1,9 +1,8 @@
 {
-  "name": "pdi",
-  "description": "plano de desenvolvimento individual",
+  "name": "thingsToDo",
+  "description": "Tarefas diárias mais fáceis",
   "main": "index.js",
   "authors": [
-    "Ciro Ferreira da Cruz",
     "Yoseph Cunha dos Santos"
   ],
   "license": "ISC",

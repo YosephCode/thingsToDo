@@ -2,16 +2,16 @@
 	'use strict';
 
 	var browserSync	= require('browser-sync').create(),
-		concat				= require('gulp-concat'),
-		cssmin				= require('gulp-cssmin'),
-		decomment			= require('gulp-decomment'),
-		del						= require('del'),
-		gulp					= require('gulp'),
-		htmlmin				= require('gulp-htmlmin'),
-		jshint				= require('gulp-jshint'),
-		ngAnnotate 		= require('gulp-ng-annotate'),
-		rename				= require('gulp-rename'),
-		uglify				= require('gulp-uglify');
+		concat		= require('gulp-concat'),
+		cssmin		= require('gulp-cssmin'),
+		decomment	= require('gulp-decomment'),
+		del			= require('del'),
+		gulp		= require('gulp'),
+		htmlmin		= require('gulp-htmlmin'),
+		jshint		= require('gulp-jshint'),
+		ngAnnotate 	= require('gulp-ng-annotate'),
+		rename		= require('gulp-rename'),
+		uglify		= require('gulp-uglify');
 
 	gulp.task('serve', function(){
 		return browserSync.init({

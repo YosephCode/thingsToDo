@@ -1,7 +1,7 @@
 {
-  "name": "pdi",
+  "name": "ThingsTodo",
   "version": "1.0.0",
-  "description": "plano de desenvolvimento individual",
+  "description": "Organize-se! Suas tarefas em um lugar.",
   "main": "index.js",
   "scripts": {
     "postinstall": "bower install",
@@ -9,21 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cirocfc/PDI.git"
+    "url": "git+https://github.com/YosephCode/thingsToDo.git"
   },
   "keywords": [
     "grunt",
     "gulp"
   ],
   "authors": [
-    "Ciro Ferreira da Cruz",
     "Yoseph Cunha dos Santos"
   ],
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/cirocfc/PDI/issues"
-  },
-  "homepage": "https://github.com/cirocfc/PDI#readme",
+  "homepage": "https://github.com/YosephCode/thingsToDo#readme",
   "devDependencies": {
     "bower": "latest",
     "browser-sync": "latest",
