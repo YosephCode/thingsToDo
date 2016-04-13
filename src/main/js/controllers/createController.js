@@ -9,7 +9,7 @@ angular.module('codebetter.controllers.createController', [
 		$this.thingsService = thingsToDoService;
 		$this.setOptionsPriority();
 		$this.setScopeFunctions();
-	}
+	};
 
 	$this.setOptionsPriority = function setOptionsPriority () {
 		$scope.optionsPriority = [
@@ -21,16 +21,16 @@ angular.module('codebetter.controllers.createController', [
 			note: null,
 			dataRegistered: new Date()
 		};
-	}
+	};
 
 	$this.setScopeFunctions = function setScopeFunctions(){
 		$scope.createTask = createTask;
-	}
+	};
 
 	function createTask (taskCreated) {
 		$this.thingsService.createTask(taskCreated);
 		$state.go('things');
-	};
+	}
 
 	return $this.initializer();
 });

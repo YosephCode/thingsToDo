@@ -1,55 +1,98 @@
 module.exports = function(grunt){
+	grunt.loadNpmTasks('grunt-contrib-clean');
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-connect');
+	grunt.loadNpmTasks('grunt-contrib-cssmin');
+	grunt.loadNpmTasks('grunt-contrib-htmlmin');
+	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-karma');
+	grunt.loadNpmTasks('grunt-ng-annotate');
+
 	grunt.initConfig({
-		pkg: grunt.file.readJSON('package.json'),
+		clean : {
+			cleantmp : [ './tmp/' ],
+			cleanboth : [ './tmp/', './www/' ],
+		},
 		connect: {
 			server:{
 				options: {
-					hostname:'localhost',
-                    port: 9191,
-                    keepalive: true,
-                    open: true
+					hostname: 'localhost',
+					port: 9191,
+					keepalive: true,
+					open: true,
+					base: ['./www/', './']
 				}
 			}
 		},
 		karma: {
-		  unit: {
-		    configFile: 'karma.conf.js'
-		  }
+			unit: {
+				configFile: 'karma.conf.js'
+			}
+		},
+		htmlmin: {
+			dist: {
+				options: {
+					removeComments: true,
+					collapseWhitespace: true
+				},
+				files: {
+					'./www/index.html': ['./src/main/index.html'],
+					'./www/templates/list.html': ['./src/main/templates/list.html'],
+					'./www/templates/createTask.html': ['./src/main/templates/createTask.html']
+				}
+			}
+		},
+		cssmin: {
+			target: {
+				files: [{
+					expand: true,
+					cwd: './src/main/css',
+					src: ['**/*.css'],
+					dest: './www/css',
+					ext: '.min.css'
+				}]
+			}
+		},
+		copy: {
+			main: {
+				files: [{
+					expand: true, cwd: './src/main/js/config', src: ['**'], dest: './www/config'
+				}]
+			},
+		},
+		jshint: {
+			all: ['Gruntfile.js', 'gulpfile.js', './src/main/**/*.js', './src/test/**/*.js']
 		},
 		ngAnnotate: {
-		    options: {
-		        singleQuotes: true
-		    },
-		    app: {
-		        files: {
-		            './public/min-safe/app.js': ['app.js'],
-		            './public/min-safe/js/controllers.js': ['controllers/*.js'],
-		            './public/min-safe/js/services.js': ['services/*.js']
-		        }
-		    }
+			options: {
+				singleQuotes: true
+			},
+			app: {
+				files: {
+					'./tmp/js/app.js': ['./src/main/js/app.js'],
+					'./tmp/js/controllers/controllers.js': ['./src/main/js/controllers/**/*.js'],
+					'./tmp/js/services/services.js': ['./src/main/js/services/**/*.js']
+				}
+			}
 		},
 		concat: {
-		    js: { 
-		        src: ['./public/min-safe/app.js', './public/min-safe/js/*.js'],
-		        dest: './public/min/app.js'
-		    }
+			js: {
+				src: './tmp/js/**/*.js',
+				dest: './tmp/app.js'
+			}
 		},
 		uglify: {
-		    js: { 
-		        src: ['./public/min/app.js'],
-		        dest: './public/min/app.js'
-		    }
+			js: {
+				src: ['./tmp/app.js'],
+				dest: './www/js/app.min.js'
+			}
 		}
-
 	});
-	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-karma');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-ng-annotate'); 
 
-    // Start web server
-    grunt.registerTask('default', ['connect:server']);
-    grunt.registerTask('build', ['ngAnnotate', 'concat', 'uglify']);
-    grunt.registerTask('test', ['karma:unit']);
-}
+	grunt.registerTask('default', ['connect:server']);
+	grunt.registerTask('build', ['clean:cleanboth', 'jshint', 'htmlmin', 'cssmin', 'copy', 'ngAnnotate', 'concat', 'uglify', 'clean:cleantmp']);
+	grunt.registerTask('clear', ['clean:cleanboth']);
+	grunt.registerTask('test', ['karma:unit']);
+};

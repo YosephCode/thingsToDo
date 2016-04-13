@@ -1,5 +1,13 @@
-# ThingsToDo
-It's a sample repository that help to organize your tasks.
+# PDI
+### Tarefas para realizar o PDI
+###### 15/02/2016 
+* Projeto base: https://github.com/YosephCode/thingsToDo
+* Organizar estrutura do projeto
+* Automatizar tarefas com Grunt
 
-► AngularJs minify
-► Unit test with Jasmine/karma/grunt
+###### 16/02/2016
+* Automatizar tarefas com Gulp
+
+###### 17/02/2016
+* Bower && NPM
+* Testes unitaários

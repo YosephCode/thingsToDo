@@ -6,8 +6,8 @@ angular.module('codebetter.controllers.doneController', [
 
 	$this.initializer = function initializer(){
 		$scope.mode = 'done';
-		$scope.state = thingsToDoService.done;	
-	}
-	
+		$scope.state = thingsToDoService.done;
+	};
+
 	return $this.initializer();
 });

@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html lang="en"
-	  ng-app="codebetter" >
+<html lang="en" ng-app="codebetter" >
 <head>
 	<title>Angular tests</title>
 	<!-- CSS -->
-	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="styles/materialDesign.css">      
-	<link rel="stylesheet" type="text/css" href="styles/style.css">
+	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="./www/css/materialDesign.min.css">
+	<link rel="stylesheet" type="text/css" href="./www/css/style.min.css">
 </head>
 <body>
 	<header class="hed-main">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand"
-					   ui-sref="things" >Things to do!
-					</a>
+					<a class="navbar-brand" ui-sref="things" >Things to do!</a>
 				</div>
-					
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right nav-text">
 						<li>
@@ -28,21 +24,19 @@
 						</li>
 					</ul>
 				</div>
-
 			</div>
 		</nav>
 	</header>
-	
+
 	<article class="container" ui-view="list">
 		<!-- Templates -->
 	</article>
-	
+
 	<footer></footer>
 
 	<!-- Script -->
-	<script src="node_modules/angular/angular.min.js"></script>
-	<script src="node_modules/ui-router/release/angular-ui-router.js"></script>
-	
-	<script src="public/min/app.js"></script>
+	<script src="./bower_components/angular/angular.min.js"></script>
+	<script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="./www/js/app.min.js"></script>
 </body>
 </html>

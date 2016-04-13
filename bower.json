@@ -1,0 +1,31 @@
+{
+  "name": "pdi",
+  "description": "plano de desenvolvimento individual",
+  "main": "index.js",
+  "authors": [
+    "Ciro Ferreira da Cruz",
+    "Yoseph Cunha dos Santos"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "grunt",
+    "gulp"
+  ],
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.0",
+    "angular-ui-router": "^0.2.18"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.0"
+  }
+}

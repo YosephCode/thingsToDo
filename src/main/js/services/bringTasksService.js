@@ -4,5 +4,5 @@ angular.module('codebetter.services.bringTasksService', [])
 		query: function(){
 			return $http.get('./config/tasks.json');
 		}
-	}
+	};
 });

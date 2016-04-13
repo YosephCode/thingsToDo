@@ -1,37 +1,62 @@
 {
-  "name": "thingsToDo",
+  "name": "pdi",
   "version": "1.0.0",
-  "description": "AngularJs application with unit tests",
-  "main": "app.js",
+  "description": "plano de desenvolvimento individual",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install",
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/YosephCode/thingsToDo.git"
+    "url": "git+https://github.com/cirocfc/PDI.git"
   },
-  "author": "Yoseph",
+  "keywords": [
+    "grunt",
+    "gulp"
+  ],
+  "authors": [
+    "Ciro Ferreira da Cruz",
+    "Yoseph Cunha dos Santos"
+  ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/YosephCode/thingsToDo/issues"
+    "url": "https://github.com/cirocfc/PDI/issues"
   },
-  "homepage": "https://github.com/YosephCode/thingsToDo#readme",
+  "homepage": "https://github.com/cirocfc/PDI#readme",
   "devDependencies": {
-    "angular": "^1.4.8",
-    "angular-mocks": "^1.4.8",
-    "bootstrap": "^3.3.6",
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-concat": "^0.5.1",
-    "grunt-contrib-connect": "^0.11.2",
-    "grunt-contrib-uglify": "^0.11.1",
-    "grunt-karma": "^0.12.1",
-    "grunt-ng-annotate": "^1.0.1",
-    "jasmine-core": "^2.4.1",
-    "karma": "^0.13.19",
-    "karma-chrome-launcher": "^0.2.2",
-    "karma-coverage": "^0.5.3",
-    "karma-growl-reporter": "^0.1.1",
-    "karma-jasmine": "^0.3.6",
-    "karma-phantomjs-launcher": "^0.2.3",
-    "phantomjs": "^1.9.19",
-    "ui-router": "^0.2.15"
+    "bower": "latest",
+    "browser-sync": "latest",
+    "del": "latest",
+    "grunt": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-connect": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-cssmin": "latest",
+    "grunt-contrib-htmlmin": "latest",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "latest",
+    "grunt-karma": "latest",
+    "grunt-ng-annotate": "latest",
+    "gulp": "latest",
+    "gulp-concat": "latest",
+    "gulp-cssmin": "latest",
+    "gulp-decomment": "latest",
+    "gulp-htmlmin": "latest",
+    "gulp-jshint": "latest",
+    "gulp-ng-annotate": "latest",
+    "gulp-rename": "latest",
+    "gulp-uglify": "latest",
+    "jasmine-core": "latest",
+    "jshint": "latest",
+    "karma": "latest",
+    "karma-chrome-launcher": "latest",
+    "karma-coverage": "latest",
+    "karma-growl-reporter": "latest",
+    "karma-jasmine": "latest",
+    "karma-phantomjs-launcher": "latest",
+    "phantomjs-prebuilt": "latest"
   }
 }
