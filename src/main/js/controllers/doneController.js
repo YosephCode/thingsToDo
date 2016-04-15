@@ -2,12 +2,12 @@ angular.module('codebetter.controllers.doneController', [
 	'codebetter.services.thingsToDoService'
 ])
 .controller('doneController', function($scope, thingsToDoService){
-	var $this = this;
+	var self = this;
 
-	$this.initializer = function initializer(){
+	self.initializer = function initializer(){
 		$scope.mode = 'done';
 		$scope.state = thingsToDoService.done;
 	};
 
-	return $this.initializer();
+	return self.initializer();
 });

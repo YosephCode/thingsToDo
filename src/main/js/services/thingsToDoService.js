@@ -1,10 +1,12 @@
 angular.module('codebetter.services.thingsToDoService', [
-	'codebetter.services.bringTasksService'
+	'codebetter.services.bringTasksToDoService',
+	'codebetter.services.bringTasksDoneService'
 ])
-.service('thingsToDoService', function(bringTasksService){
+.service('thingsToDoService', function(bringTasksToDoService, bringTasksDoneService){
 	var self = this;
-
-	bringTasks();
+	
+	self.tasks = bringTasksToDoService;
+	self.done = bringTasksDoneService;
 
 	self.getTask = function getTask(task) {
 		var tasksLength = self.tasks.length;
@@ -15,18 +17,6 @@ angular.module('codebetter.services.thingsToDoService', [
 			}
 		}
 	};
-
-  self.tasks = [];
-  self.done = [];
-
-	function bringTasks(){
-		bringTasksService.query().then(function(response){
-			self.tasks = response.data.tasks.toDo;
-			self.done = response.data.tasks.done;
-		}, function(errResponse){
-			window.alert('Houve um erro em nosso servidor.');
-		});
-	}
 
 	self.addDone = function addDone (task) {
 		var taskDone = angular.copy(task);

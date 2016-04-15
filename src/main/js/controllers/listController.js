@@ -8,10 +8,10 @@ angular.module('codebetter.controllers.listController', [
 		$this.thingsService = thingsToDoService;
 		$scope.mode = 'toDo';
 		$this.setScopeFunctions();
-
+		
 		$timeout(function(){
-			$scope.state = thingsToDoService.tasks;
-		},100);
+            $scope.state = thingsToDoService.tasks;
+        },100);
 	};
 
 	function addDone (task, index) {

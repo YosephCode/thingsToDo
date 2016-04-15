@@ -1,4 +1,5 @@
 angular.module('codebetter', [
+	'firebase',
 	'codebetter.controllers.listController',
 	'codebetter.controllers.doneController',
 	'codebetter.controllers.createController',
