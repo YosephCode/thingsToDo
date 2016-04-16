@@ -10,18 +10,4 @@ describe('doneController', function(){
     		$scope : scope
     	});
     }));
-
-    describe('on initializer', function(){
-    	beforeEach(function(){
-    		ctrl.initializer();
-    	});
-
-    	it('should set scope mode', function(){
-    		expect( scope.mode ).toEqual( 'done' );
-    	});
-
-    	it('should set scope state', function(){
-    		expect( scope.state ).toBeDefined();
-    	});
-    });
 });
