@@ -5,6 +5,10 @@ angular.module('codebetter', [
 	'codebetter.controllers.createController',
 	'ui.router'
 ])
+.value('databaseUrl', 'https://thingstodotoday.firebaseio.com/')
+.value('tasks_table', 'tasks/')
+.value('tasksToDo_table', 'toDo')
+.value('tasksDone_table', 'done')
 .config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
 	$stateProvider
