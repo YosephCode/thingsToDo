@@ -12,6 +12,7 @@ angular.module('codebetter.controllers.createController', [
 	};
 
 	self.setOptionsPriority = function setOptionsPriority () {
+		var timestampReg = new Date();
 		$scope.optionsPriority = [
 			'low', 'average', 'high', 'critical'
 		];
@@ -19,7 +20,7 @@ angular.module('codebetter.controllers.createController', [
 			task: null,
 			priority: $scope.optionsPriority[0],
 			note: null,
-			dateRegistered: new Date()
+			dataRegistered: timestampReg.getTime()
 		};
 	};
 

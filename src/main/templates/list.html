@@ -15,10 +15,9 @@
 				<td ng-show="mode == 'toDo' || 'done'" ng-class="{'col-md-3': mode == 'toDo', 'col-md-4': mode == 'done'}">{{toDo.task}}</td>
 				<td ng-show="mode == 'toDo'" class="col-md-2">{{toDo.priority}}</td>
 				<td ng-show="mode == 'toDo' || 'done'" ng-class="{'col-md-4': mode == 'toDo', 'col-md-6': mode == 'done'}">{{toDo.note}}</td>
-				<td ng-show="mode == 'toDo' || 'done'" class="col-md-2">{{toDo.dataRegistered | date: "dd-MM-yyyy"}}</td>
+				<td ng-show="mode == 'toDo' || 'done'" class="col-md-2">{{toDo.dataRegistered | date:"dd/MM/yyyy"}}</td>
 				<td ng-show="mode == 'toDo'" class="col-md-1">
 					<button type="submit" class="btn btn-success" ng-click="addDone(toDo)">Done</button>
-
 				</td>
 				<td ng-show="mode == 'toDo'" class="col-md-1">
 					<button type="submit" class="btn btn-danger" ng-click="removeToDo(toDo)">Delete</button>
