@@ -14,14 +14,14 @@ angular.module('codebetter.controllers.listController', [
         },100);
 	};
 
-	function addDone (task, index) {
+	function addDone (task) {
 		$this.thingsService.getTask(task);
 		$this.thingsService.addDone(task);
-		$this.thingsService.removeToDo(index);
+		$this.thingsService.removeToDo(task);
 	}
 
-	function removeToDo (index) {
-		$this.thingsService.removeToDo(index);
+	function removeToDo (task) {
+		$this.thingsService.removeToDo(task);
 	}
 
 	$this.setScopeFunctions = function setScopeFunctions(){

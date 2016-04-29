@@ -2,7 +2,7 @@ angular.module('codebetter.services.thingsToDoService', [
 	'codebetter.services.bringTasksToDoService',
 	'codebetter.services.bringTasksDoneService'
 ])
-.service('thingsToDoService', function(bringTasksToDoService, bringTasksDoneService){
+.service('thingsToDoService', function($firebaseObject, bringTasksToDoService, bringTasksDoneService, databaseUrl, tasks_table, tasksToDo_table){
 	var self = this;
 	
 	self.tasks = bringTasksToDoService;
@@ -20,11 +20,14 @@ angular.module('codebetter.services.thingsToDoService', [
 
 	self.addDone = function addDone (task) {
 		var taskDone = angular.copy(task);
-		self.done.push(taskDone);
+		console.info(taskDone);
+		self.done.$add(taskDone);
 	};
 
-	self.removeToDo = function removeToDo(index) {
-		self.tasks.splice(index, 1);
+	self.removeToDo = function removeToDo(task) {
+		var refTask = databaseUrl + tasks_table + tasksToDo_table + '/' + task.$id;
+        var taskTrash = $firebaseObject(new Firebase(refTask));
+        taskTrash.$remove();
 	};
 
 	self.createTask = function createTask(task) {
