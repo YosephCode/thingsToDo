@@ -7,11 +7,11 @@ angular.module('codebetter.controllers.createController', [
 
 	self.initializer = function initializer(){
 		self.thingsService = thingsToDoService;
-		self.setOptionsPriority();
+		self.setNewTask();
 		self.setScopeFunctions();
 	};
 
-	self.setOptionsPriority = function setOptionsPriority () {
+	self.setNewTask = function setNewTask () {
 		var timestampReg = new Date();
 		$scope.optionsPriority = [
 			'low', 'average', 'high', 'critical'
@@ -20,6 +20,7 @@ angular.module('codebetter.controllers.createController', [
 			task: null,
 			priority: $scope.optionsPriority[0],
 			note: null,
+			type: 'toDo',
 			dataRegistered: timestampReg.getTime()
 		};
 	};
