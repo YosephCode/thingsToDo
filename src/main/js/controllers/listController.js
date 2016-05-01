@@ -1,32 +1,32 @@
 angular.module('codebetter.controllers.listController', [
 	'codebetter.services.thingsAppService'
 ])
-.controller('listController', function($scope, $state, $timeout, thingsAppService) {
-	var $this = this;
-
-	$this.initializer = function initializer(){
-		$this.thingsService = thingsAppService;
+.controller('listController', function($scope, $timeout, thingsAppService) {
+	
+	function initializer(){
+		var thingsService = thingsAppService;
 		$scope.mode = 'toDo';
-		$this.setScopeFunctions();
+		setScopeFunctions();
+
 		$timeout(function(){
             $scope.state = thingsAppService.tasks;
         },100);
-	};
+	}
 
 	function addDone (task) {
-		$this.thingsService.getTask(task);
-		$this.thingsService.addDone(task);
-		$this.thingsService.removeToDo(task);
+		thingsService.getTask(task);
+		thingsService.addDone(task);
+		thingsService.removeToDo(task);
 	}
 
 	function removeToDo (task) {
-		$this.thingsService.removeToDo(task);
+		thingsService.removeToDo(task);
 	}
 
-	$this.setScopeFunctions = function setScopeFunctions(){
+	function setScopeFunctions(){
 		$scope.addDone = addDone;
 		$scope.removeToDo = removeToDo;
-	};
+	}
 
-	$this.initializer();
+	return initializer();
 });

@@ -2,49 +2,20 @@
 	"tasks": {
 		"toDo": [
 			{
-				"task": "Estudar AngularJs",
-				"priority": "Critical",
-				"note": "Semana que vem já começo a trabalhar, tenho que estudar.",
-				"dataRegistered": "16/11/2015"
-			},
-			{
-				"task": "Resposta da imobiliária Anagê",
-				"priority": "Critical",
-				"note": "Esperando resultado de análise dos meus documentos para aluguel.",
-				"dataRegistered": "18/11/2015"
-			},
-			{
-				"task": "Comprar uma mochila",
+				"task": "Me excluit",
 				"priority": "low",
-				"note": "Para carregar o notebook em segurança",
-				"dataRegistered": "17/11/2015"
+				"note": "teste",
+				"dataRegistered": "01/05/2016"
 			},
 			{
-				"task": "Prolongar data no hotel",
+				"task": "Morar em Joinville",
 				"priority": "Critical",
-				"note": "Depois da resposta da Anagê, ligar para Natália para prolongar os dias no hotel.",
-				"dataRegistered": "18/11/2015"
-			},
-			{
-				"task": "Confirmar data de início no trampo",
-				"priority": "Critical",
-				"note": "Depois de entrar no apartamento confirmar data de início",
-				"dataRegistered": "18/11/2015"
+				"note": "Pegar o vôo para Joinville, arrumar ap, morar e começar a trabalhar.",
+				"dataRegistered": "12/11/2015"
 			}
 		],
 		"done": [
-			{
-				"task": "Começar projeto Aprendizado em AngularJs",
-				"priority": "Critical",
-				"note": "Por em prática em conhecimento.",
-				"dataRegistered": "16/11/2015"
-			},
-			{
-				"task": "Visitar apartamentos no Costa e Silva",
-				"priority": "regular",
-				"note": "Visitar para ter mais opções de escolha.",
-				"dataRegistered": "12/11/2015"
-			}
+			
 		],
 		"monthly": [
 			{
@@ -56,13 +27,31 @@
 			{
 				"task": "Pagar condomínio",
 				"priority": "Critical",
-				"note": "vence no dia 10",
+				"note": "Vence no dia 10",
 				"dataRegistered": "01/05/2016"
 			},
 			{
 				"task": "Pagar luz",
 				"priority": "Critical",
-				"note": "vence no dia 11",
+				"note": "Vence no dia 11",
+				"dataRegistered": "01/05/2016"
+			},
+			{
+				"task": "Pagar Celular vivo",
+				"priority": "Critical",
+				"note": "Vence no dia 10",
+				"dataRegistered": "01/05/2016"
+			},
+			{
+				"task": "Pagar Gvt",
+				"priority": "Critical",
+				"note": "Vence no dia 25, débito automático",
+				"dataRegistered": "01/05/2016"
+			},
+			{
+				"task": "Pagar academia",
+				"priority": "Critical",
+				"note": "Vence no dia 10",
 				"dataRegistered": "01/05/2016"
 			}
 		]

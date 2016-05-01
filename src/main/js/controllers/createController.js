@@ -2,7 +2,7 @@ angular.module('codebetter.controllers.createController', [
 	'codebetter.services.thingsAppService',
 	'ui.router'
 ])
-.controller('createController', function($scope, $rootScope, $state, thingsAppService){
+.controller('createController', function($scope, $state, thingsAppService){
 	var self = this;
 
 	self.initializer = function initializer(){
