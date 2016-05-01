@@ -1,12 +1,9 @@
 angular.module('codebetter', [
 	'firebase',
-	
 	'codebetter.controllers.headerAppController',
 	'codebetter.controllers.listController',
 	'codebetter.controllers.doneController',
 	'codebetter.controllers.createController',
-
-	'codebetter.services.thingsToDoService',
 	'ui.router'
 ])
 

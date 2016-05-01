@@ -1,12 +1,12 @@
 angular.module('codebetter.controllers.createController', [
-	'codebetter.services.thingsToDoService',
+	'codebetter.services.thingsAppService',
 	'ui.router'
 ])
-.controller('createController', function($scope, $state, thingsToDoService){
+.controller('createController', function($scope, $state, thingsAppService){
 	var self = this;
 
 	self.initializer = function initializer(){
-		self.thingsService = thingsToDoService;
+		self.thingsService = thingsAppService;
 		self.setNewTask();
 		self.setScopeFunctions();
 	};

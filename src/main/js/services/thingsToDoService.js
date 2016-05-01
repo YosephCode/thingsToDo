@@ -1,9 +1,9 @@
-angular.module('codebetter.services.thingsToDoService', [
+angular.module('codebetter.services.thingsAppService', [
 	'codebetter.services.bringToDoTasksService',
 	'codebetter.services.bringDoneTasksService',
 	'codebetter.services.bringMonthlyTasksService'
 ])
-.service('thingsToDoService', function(bringToDoTasksService, bringDoneTasksService, bringMonthlyTasksService){
+.service('thingsAppService', function(bringToDoTasksService, bringDoneTasksService, bringMonthlyTasksService){
 	var self = this;
 	
 	self.tasks = bringToDoTasksService;
