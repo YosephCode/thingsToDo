@@ -2,7 +2,7 @@ angular.module('codebetter.controllers.createController', [
 	'codebetter.services.thingsAppService',
 	'ui.router'
 ])
-.controller('createController', function($scope, $state, thingsAppService){
+.controller('createController', function($scope, $rootScope, $state, thingsAppService){
 	var self = this;
 
 	self.initializer = function initializer(){
@@ -34,7 +34,6 @@ angular.module('codebetter.controllers.createController', [
 			self.thingsService.createTaskMonthly(taskCreated);
 		else
 			self.thingsService.createTaskToDo(taskCreated);
-		
 		$state.go('things');
 	}
 

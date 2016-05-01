@@ -4,6 +4,7 @@ angular.module('codebetter', [
 	'codebetter.controllers.listController',
 	'codebetter.controllers.doneController',
 	'codebetter.controllers.createController',
+	'codebetter.controllers.monthlyController',
 	'ui.router'
 ])
 
@@ -35,6 +36,15 @@ angular.module('codebetter', [
 				'list': {
 					templateUrl: 'templates/list.html',
 					controller: 'doneController'
+				}
+			}
+		})
+		.state('monthly', {
+			url:'/monthly',
+			views: {
+				'list': {
+					templateUrl: 'templates/list.html',
+					controller: 'monthlyController'
 				}
 			}
 		})

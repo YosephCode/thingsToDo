@@ -2,26 +2,25 @@
 	<table class="table table-striped">
 		<thead>
 		  <tr class="row tbl-title">
-		  	<th ng-show="mode == 'toDo' || 'done'" ng-class="{'col-md-3': mode == 'toDo', 'col-md-4': mode == 'done'}" >Task</th>
-		  	<th ng-show="mode == 'toDo'" class="col-md-2">Priority</th>
-		  	<th ng-show="mode == 'toDo' || 'done'" ng-class="{'col-md-4': mode == 'toDo', 'col-md-6': mode == 'done'}">Note</th>
-		  	<th ng-show="mode == 'toDo' || 'done'" class="col-md-2">Data registered</th>
-		  	<th ng-show="mode == 'toDo'" class="col-md-1">Action</th>
+		  	<th ng-show="mode == 'toDo' || 'done' || 'monthly'" ng-class="{'col-md-3': mode == 'toDo' || 'monthly', 'col-md-4': mode == 'done'}" >Task</th>
+		  	<th ng-show="mode == 'toDo' || 'monthly'" class="col-md-2">Priority</th>
+		  	<th ng-show="mode == 'toDo' || 'done' || 'monthly'" ng-class="{'col-md-4': mode == 'toDo' || 'monthly', 'col-md-6': mode == 'done'}">Note</th>
+		  	<th ng-show="mode == 'toDo' || 'done' || 'monthly'" class="col-md-2">Data registered</th>
+		  	<th ng-show="mode == 'toDo' || 'monthly'" class="col-md-1">Action</th>
 		  </tr>
 		</thead>
 		<tbody>
 			<tr class="row" ng-repeat = "toDo in state">
-				<td ng-show="mode == 'toDo' || 'done'" ng-class="{'col-md-3': mode == 'toDo', 'col-md-4': mode == 'done'}">{{toDo.task}}</td>
-				<td ng-show="mode == 'toDo'" class="col-md-2">{{toDo.priority}}</td>
-				<td ng-show="mode == 'toDo' || 'done'" ng-class="{'col-md-4': mode == 'toDo', 'col-md-6': mode == 'done'}">{{toDo.note}}</td>
-				<td ng-show="mode == 'toDo' || 'done'" class="col-md-2">{{toDo.dataRegistered | date:"dd/MM/yyyy"}}</td>
+				<td ng-show="mode == 'toDo' || 'done' || 'monthly'" ng-class="{'col-md-3': mode == 'toDo' || 'monthly', 'col-md-4': mode == 'done'}">{{toDo.task}}</td>
+				<td ng-show="mode == 'toDo' || 'monthly'" class="col-md-2">{{toDo.priority}}</td>
+				<td ng-show="mode == 'toDo' || 'done' || 'monthly'" ng-class="{'col-md-4': mode == 'toDo' || 'monthly', 'col-md-6': mode == 'done'}">{{toDo.note}}</td>
+				<td ng-show="mode == 'toDo' || 'done' || 'monthly'" class="col-md-2">{{toDo.dataRegistered | date:"dd/MM/yyyy"}}</td>
 				<td ng-show="mode == 'toDo'" class="col-md-1">
 					<button type="submit" class="btn btn-success" ng-click="addDone(toDo)">Done</button>
 				</td>
-				<td ng-show="mode == 'toDo'" class="col-md-1">
+				<td ng-show="mode == 'toDo' || 'monthly'" class="col-md-1">
 					<button type="submit" class="btn btn-danger" ng-click="removeToDo(toDo)">Delete</button>
 				</td>
-				
 			</tr>
 		    
 		</tbody>

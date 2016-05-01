@@ -1,14 +1,13 @@
 angular.module('codebetter.controllers.listController', [
 	'codebetter.services.thingsAppService'
 ])
-.controller('listController', function($scope, $timeout, thingsAppService) {
+.controller('listController', function($scope, $state, $timeout, thingsAppService) {
 	var $this = this;
 
 	$this.initializer = function initializer(){
 		$this.thingsService = thingsAppService;
 		$scope.mode = 'toDo';
 		$this.setScopeFunctions();
-		
 		$timeout(function(){
             $scope.state = thingsAppService.tasks;
         },100);

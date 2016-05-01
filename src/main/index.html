@@ -16,11 +16,14 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<div class="col-xs-2">
-						<button type="button" class="btn btn-secondary margin-top-u15" ng-click="setMonthlyTasks()">Set monthly tasks</button>	
+						<button type="button" class="btn btn-secondary margin-top-u15" ng-click="setMonthlyTasks()" ng-disabled="!disabledBtnMonthly">Set monthly tasks</button>	
 					</div>
 					<ul class="nav navbar-nav navbar-right nav-text">
 						<li>
 							<a ui-sref="done">Done</a>
+						</li>
+						<li>
+							<a ui-sref="monthly">Monthly</a>
 						</li>
 						<li>
 							<a ui-sref="create">Create task</a>
