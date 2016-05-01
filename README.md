@@ -2,4 +2,4 @@
 It is a simple project to help in daily activities.
 ___________________________________________________
 
-> Done with AngularJs and Firebase.
+> Doing with AngularJs and Firebase.
