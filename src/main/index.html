@@ -8,13 +8,16 @@
 	<link rel="stylesheet" type="text/css" href="./www/css/style.min.css">
 </head>
 <body>
-	<header class="hed-main">
+	<header class="hed-main" ui-view="headerApp">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
 					<a class="navbar-brand" ui-sref="things" >Things to do!</a>
 				</div>
 				<div class="collapse navbar-collapse">
+					<div class="col-xs-2">
+						<button type="button" class="btn btn-secondary margin-top-u15" ng-click="setMonthlyTasks()">Set monthly tasks</button>	
+					</div>
 					<ul class="nav navbar-nav navbar-right nav-text">
 						<li>
 							<a ui-sref="done">Done</a>

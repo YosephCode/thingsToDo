@@ -45,7 +45,26 @@
 				"note": "Visitar para ter mais opções de escolha.",
 				"dataRegistered": "12/11/2015"
 			}
-
+		],
+		"monthly": [
+			{
+				"task": "Pagar aluguel",
+				"priority": "Critical",
+				"note": "Pagamento do aluguel vence sempre no dia 08",
+				"dataRegistered": "01/05/2016"
+			},
+			{
+				"task": "Pagar condomínio",
+				"priority": "Critical",
+				"note": "vence no dia 10",
+				"dataRegistered": "01/05/2016"
+			},
+			{
+				"task": "Pagar luz",
+				"priority": "Critical",
+				"note": "vence no dia 11",
+				"dataRegistered": "01/05/2016"
+			}
 		]
 	}
 }

@@ -30,7 +30,11 @@ angular.module('codebetter.controllers.createController', [
 	};
 
 	function createTask (taskCreated) {
-		self.thingsService.createTask(taskCreated);
+		if(taskCreated.type === 'monthly')
+			self.thingsService.createTaskMonthly(taskCreated);
+		else
+			self.thingsService.createTaskToDo(taskCreated);
+		
 		$state.go('things');
 	}
 
