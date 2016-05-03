@@ -22,10 +22,9 @@
 					<button type="submit" class="btn btn-danger" ng-click="removeToDo(toDo)">Delete</button>
 				</td>
 			</tr>
-		    
 		</tbody>
 	</table>
-	<div ng-show="state.length == 0" >
+	<div ng-show="state.length === 0" ng-cloak>
 		<div class="alert alert-info" >
 			<p class="text-center" >No tasks.</p >
 		</div >

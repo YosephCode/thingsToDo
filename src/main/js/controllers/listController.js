@@ -3,14 +3,13 @@ angular.module('codebetter.controllers.listController', [
 ])
 .controller('listController', function($scope, $timeout, thingsAppService) {
 	
-	function initializer(){
-		var thingsService = thingsAppService;
-		$scope.mode = 'toDo';
-		setScopeFunctions();
+	var thingsService = thingsAppService;
 
-		$timeout(function(){
-            $scope.state = thingsAppService.tasks;
-        },100);
+	function initializer(){
+		$scope.mode = 'toDo';
+		$scope.state = thingsAppService.tasks;
+
+		setScopeFunctions();
 	}
 
 	function addDone (task) {

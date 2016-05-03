@@ -2,17 +2,17 @@ angular.module('codebetter.controllers.monthlyController', [
 	'codebetter.services.thingsAppService'
 ])
 .controller('monthlyController', function($scope, thingsAppService){
-	var $this = this;
-	$this.thingsService = thingsAppService;
+	
+	var thingsService = thingsAppService;
 
 	function initializer(){
 		$scope.mode = 'monthly';
-		$scope.state = thingsAppService.monthly;
+		$scope.state = thingsService.monthly;
 		setScopeFunctions();
 	}
 
 	function removeToDo (task) {
-		$this.thingsService.removeMonthly(task);
+		thingsService.removeMonthly(task);
 	}
 
 	function setScopeFunctions(){
