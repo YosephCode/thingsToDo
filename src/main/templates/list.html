@@ -2,7 +2,7 @@
 	<table class="table table-striped">
 		<thead>
 		  <tr class="row tbl-title">
-		  	<th ng-show="mode" ng-class="{'col-md-3': mode != 'done', 'col-md-4': mode == 'done'}" >Task</th>
+		  	<th ng-show="mode" ng-class="{'col-md-3': mode != 'done', 'col-md-4 titleTableEditable': mode == 'done'}" >Task</th>
 		  	<th ng-hide="mode == 'done'" class="col-md-2">Priority</th>
 		  	<th ng-show="mode" ng-class="{'col-md-4': mode != 'done', 'col-md-6': mode == 'done'}">Note</th>
 		  	<th ng-show="mode" class="col-md-2">Data registered</th>

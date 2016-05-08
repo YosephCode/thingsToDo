@@ -17,3 +17,27 @@
 .margin-top-u15 {
 	margin-top: 15px;
 }
+
+.table>thead:first-child>tr:first-child>th.titleTableEditable:hover:after {
+    background: hsla(114, 37%, 50%, 0.8);
+    border-radius: 3px;
+    color: #f6f6f6;
+    content: 'Clique para editar';
+    font: 700 12px/30px sans-serif;
+    height: 30px;
+    left: 30%;
+    position: absolute;
+    text-align: center;
+    top: 102px;
+    width: 120px;
+}
+.table>thead:first-child>tr:first-child>th.titleTableEditable:focus:after {
+    visibility: none;
+}
+
+.table>thead:first-child>tr:first-child>th.titleTableEditable:hover, 
+.table>thead:first-child>tr:first-child>th.titleTableEditable:focus, 
+.table>thead:first-child>tr:first-child>th.titleTableEditable:active  {
+	border: 1px solid #5BAFF3;
+	border-top: 1px solid #5BAFF3;
+}
