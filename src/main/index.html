@@ -12,21 +12,21 @@
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand" ui-sref="things" >Things to do!</a>
+					<a class="navbar-brand" ui-sref="things.toDo" >Things to do!</a>
 				</div>
 				<div class="collapse navbar-collapse">
 					<div class="col-xs-2">
-						<button type="button" class="btn btn-secondary margin-top-u15" ng-click="setMonthlyTasks()" ng-disabled="!($state.current.name === 'things')">Set monthly tasks</button>	
+						<button type="button" class="btn btn-secondary margin-top-u15" ng-click="setMonthlyTasks()" ng-disabled="!($state.current.name === 'things.toDo')">Set monthly tasks</button>	
 					</div>
 					<ul class="nav navbar-nav navbar-right nav-text">
 						<li>
-							<a ui-sref="done">Done</a>
+							<a ui-sref="things.done">Done</a>
 						</li>
 						<li>
-							<a ui-sref="monthly">Monthly</a>
+							<a ui-sref="things.monthly">Monthly</a>
 						</li>
 						<li>
-							<a ui-sref="create">Create task</a>
+							<a ui-sref="things.create">Create task</a>
 						</li>
 					</ul>
 				</div>
@@ -34,12 +34,11 @@
 		</nav>
 	</header>
 
-	<article class="container" ui-view="list">
+	<main class="container" ui-view="list">
 		<!-- Templates -->
-	</article>
+	</main>
 
 	<footer></footer>
-
 	<!-- Script -->
 	<script src="./bower_components/angular/angular.min.js"></script>
 	<script src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>

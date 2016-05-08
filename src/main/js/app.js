@@ -15,22 +15,27 @@ angular.module('codebetter', [
 .constant('monthlyTasks_table', 'monthly')
 
 .config(['$stateProvider','$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
-	$urlRouterProvider.otherwise('/');
+	$urlRouterProvider.otherwise('/tasks/toDo');
 	$stateProvider
 		.state('things', {
-			url:"/",
+			url:"/tasks",
 			views: {
 				'headerApp': {
 					templateUrl:'index.html',
 					controller: 'headerAppController'
-				},
+				}
+			}
+		})
+		.state('things.toDo', {
+			url:"/toDo",
+			views: {
 				'list': {
 					templateUrl:'templates/list.html',
 					controller: 'listController'
 				}
 			}
 		})
-		.state('done', {
+		.state('things.done', {
 			url:'/done',
 			views: {
 				'list': {
@@ -39,7 +44,7 @@ angular.module('codebetter', [
 				}
 			}
 		})
-		.state('monthly', {
+		.state('things.monthly', {
 			url:'/monthly',
 			views: {
 				'list': {
@@ -48,7 +53,7 @@ angular.module('codebetter', [
 				}
 			}
 		})
-		.state('create', {
+		.state('things.create', {
 			url:'/create',
 			views: {
 				'list': {
