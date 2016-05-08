@@ -44,6 +44,7 @@ angular.module('codebetter.controllers.headerAppController', [
 		var stateHistorty = history.state.navigation[0];
 		
 		historyOfUserNavigation.push(stateHistorty);
+		localStorage.setItem("navigationHistory", JSON.stringify(historyOfUserNavigation));
 		console.info(historyOfUserNavigation);
 	}
 
