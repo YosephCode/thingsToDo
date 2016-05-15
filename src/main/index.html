@@ -7,7 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="./www/css/materialDesign.min.css">
 	<link rel="stylesheet" type="text/css" href="./www/css/style.min.css">
 </head>
-<body>
+<body ui-view="mainApp">
+	<p id="log"></p>
 	<header class="hed-main" ui-view="headerApp">
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
@@ -17,6 +18,9 @@
 				<div class="collapse navbar-collapse">
 					<div class="col-xs-2">
 						<button type="button" class="btn btn-secondary margin-top-u15" ng-click="setMonthlyTasks()" ng-disabled="!($state.current.name === 'things.toDo')">Set monthly tasks</button>	
+					</div>
+					<div class="col-xs-2">
+						<button type="button" class="btn btn-info margin-top-u15" ng-click="toggleFullscreen()">Full screen</button>	
 					</div>
 					<ul class="nav navbar-nav navbar-right nav-text">
 						<li>

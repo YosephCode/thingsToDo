@@ -1,5 +1,6 @@
 angular.module('codebetter', [
 	'firebase',
+	'codebetter.controllers.mainAppController',
 	'codebetter.controllers.headerAppController',
 	'codebetter.controllers.listController',
 	'codebetter.controllers.doneController',
@@ -23,6 +24,10 @@ angular.module('codebetter', [
 				'headerApp': {
 					templateUrl:'index.html',
 					controller: 'headerAppController'
+				},
+				'mainApp': {
+					templateUrl:'index.html',
+					controller: 'mainAppController'	
 				}
 			}
 		})

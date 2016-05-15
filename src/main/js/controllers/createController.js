@@ -35,7 +35,7 @@ angular.module('codebetter.controllers.createController', [
 		else
 			thingsService.createTaskToDo(taskCreated);
 		
-		$state.go('things');
+		$state.go('things.toDo');
 	}
 
 	return initializer();
