@@ -1,0 +1,112 @@
+angular.module('codebetter.controllers.mainAppController', [])
+.controller('mainAppController', function($scope, $window) {
+	
+	var historyOfUserNavigation = [];
+	
+	var prefix = getPrefixCrossBrowser();
+	var views = 0;
+
+	function initializer() {
+		checkUserConnection();
+		setScopeFunctions();
+
+		setTimeout(function() {
+			addHistory();
+			performancePage();
+			onVisibilityPage();
+		}, 100);
+	}
+
+	function getPrefixCrossBrowser() {
+		var prefixBrowser = null;
+        if (document.hidden !== undefined)
+          prefixBrowser = '';
+        else {
+          var browserPrefixes = ['webkit','moz','ms','o'];
+          for(var i = 0; i < browserPrefixes.length; i++) {
+            if (document[browserPrefixes[i] + 'Hidden'] !== undefined) {
+              prefixBrowser = browserPrefixes[i];
+            }
+          }
+        }
+        return prefixBrowser;
+	}
+
+	function countView() {
+		if (document.hidden === false || document[prefix + 'Hidden'] === false)
+		  views++;
+
+		console.log('Views count is: ' + views + ' // VisibilityStateAPI is: ' + document[(prefix === '' ? 'v' : prefix + 'V') + 'isibilityState']);
+	}
+
+	function onVisibilityPage() {
+        if (prefix === null)
+          console.warn('Your browser does not support Page Visibility API');
+        else {
+          document.addEventListener(prefix + 'visibilitychange', countView);
+          countView();
+        }
+	}
+
+	function performancePage() {
+		var t = $window.performance.timing;
+	    	
+	    console.log('Latência (t.responseEnd - t.fetchStart): ', t.responseEnd - t.fetchStart);
+	    console.log('Carregamento da página (t.loadEventEnd - t.responseEnd): ', t.loadEventEnd - t.responseEnd);
+	    console.log('Todo processo de navegação (t.loadEventEnd - t.navigationStart): ', t.loadEventEnd - t.navigationStart);
+	}
+
+	function checkUserConnection() {
+		if (!navigator.onLine) {
+			alert('Sua conexão com a internet falhou. Verifique sua conexão por favor.');
+		}
+	}
+
+	function addHistory() {
+		var linksPageNavigation = document.querySelectorAll('a');
+		for (var i = 0; i < linksPageNavigation.length; i++) {
+	      linksPageNavigation[i].addEventListener('click', historyNavigationHandler, true);
+	    }
+	}
+
+	function historyNavigationHandler(event) {
+		var data = event.target.getAttribute('href').split('/').pop();
+
+		history.pushState({navigation: [data]}, data, event.target.href);
+		var stateHistorty = history.state.navigation[0];
+		
+		historyOfUserNavigation.push(stateHistorty);
+		localStorage.setItem('navigationHistory', JSON.stringify(historyOfUserNavigation));
+	}
+
+	function toggleFullscreen() {
+		if (!document.fullscreenElement &&   
+		  !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+			if (document.documentElement.requestFullscreen) {
+			  document.documentElement.requestFullscreen();
+			} else if (document.documentElement.msRequestFullscreen) {
+			  document.documentElement.msRequestFullscreen();
+			} else if (document.documentElement.mozRequestFullScreen) {
+			  document.documentElement.mozRequestFullScreen();
+			} else if (document.documentElement.webkitRequestFullscreen) {
+			  document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+			}
+		} else {
+			if (document.exitFullscreen) {
+			  document.exitFullscreen();
+			} else if (document.msExitFullscreen) {
+			  document.msExitFullscreen();
+			} else if (document.mozCancelFullScreen) {
+			  document.mozCancelFullScreen();
+			} else if (document.webkitExitFullscreen) {
+			  document.webkitExitFullscreen();
+			}
+		}
+	}
+
+	function setScopeFunctions() {
+		$scope.toggleFullscreen = toggleFullscreen;
+	}
+
+	return initializer();
+});
