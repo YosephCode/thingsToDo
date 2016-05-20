@@ -1,8 +1,8 @@
 angular.module('codebetter.controllers.mainAppController', [])
 .controller('mainAppController', function($scope, $window) {
-	
+
 	var historyOfUserNavigation = [];
-	
+
 	var prefix = getPrefixCrossBrowser();
 	var views = 0;
 
@@ -50,7 +50,7 @@ angular.module('codebetter.controllers.mainAppController', [])
 
 	function performancePage() {
 		var t = $window.performance.timing;
-	    	
+
 	    console.log('Latência (t.responseEnd - t.fetchStart): ', t.responseEnd - t.fetchStart);
 	    console.log('Carregamento da página (t.loadEventEnd - t.responseEnd): ', t.loadEventEnd - t.responseEnd);
 	    console.log('Todo processo de navegação (t.loadEventEnd - t.navigationStart): ', t.loadEventEnd - t.navigationStart);
@@ -74,13 +74,13 @@ angular.module('codebetter.controllers.mainAppController', [])
 
 		history.pushState({navigation: [data]}, data, event.target.href);
 		var stateHistorty = history.state.navigation[0];
-		
+
 		historyOfUserNavigation.push(stateHistorty);
 		localStorage.setItem('navigationHistory', JSON.stringify(historyOfUserNavigation));
 	}
 
 	function toggleFullscreen() {
-		if (!document.fullscreenElement &&   
+		if (!document.fullscreenElement &&
 		  !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
 			if (document.documentElement.requestFullscreen) {
 			  document.documentElement.requestFullscreen();
@@ -104,8 +104,38 @@ angular.module('codebetter.controllers.mainAppController', [])
 		}
 	}
 
+  function notifyMe() {
+    // Let's check if the browser supports notifications
+    if (!("Notification" in window)) {
+      alert("This browser does not support desktop notification");
+    }
+
+    // Let's check whether notification permissions have already been granted
+    else if (Notification.permission === "granted") {
+      // If it's okay let's create a notification
+      var notification = new Notification('Crie suas tasks!', {
+        body : 'Olá Yoseph! Aqui você pode criar suas tarefas mensais e suas tarefas do dia a dia.',
+        icon : '../../img/msg.png',
+        tag: 'minhaFoto'
+      });
+    }
+
+    else if (Notification.permission !== 'denied') {
+      Notification.requestPermission(function (permission) {
+        if (permission === "granted") {
+          var notification = new Notification("Olá! Espero que goste do produto.");
+        }
+      });
+    }
+  }
+
+  Notification.requestPermission().then(function(result) {
+    console.log(result);
+  });
+
 	function setScopeFunctions() {
 		$scope.toggleFullscreen = toggleFullscreen;
+    $scope.notifyMe = notifyMe;
 	}
 
 	return initializer();

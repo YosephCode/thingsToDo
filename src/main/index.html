@@ -17,10 +17,10 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<div class="col-xs-2">
-						<button type="button" class="btn btn-secondary margin-top-u15" ng-click="setMonthlyTasks()" ng-disabled="!($state.current.name === 'things.toDo')">Set monthly tasks</button>	
+						<button type="button" class="btn btn-secondary margin-top-u15" ng-click="setMonthlyTasks()" ng-disabled="!($state.current.name === 'things.toDo')">Set monthly tasks</button>
 					</div>
 					<div class="col-xs-2">
-						<button type="button" class="btn btn-info margin-top-u15" ng-click="toggleFullscreen()">Full screen</button>	
+						<button type="button" class="btn btn-info margin-top-u15" ng-click="toggleFullscreen()">Full screen</button>
 					</div>
 					<ul class="nav navbar-nav navbar-right nav-text">
 						<li>
@@ -30,7 +30,7 @@
 							<a ui-sref="things.monthly">Monthly</a>
 						</li>
 						<li>
-							<a ui-sref="things.create">Create task</a>
+							<a ng-click="notifyMe()" ui-sref="things.create">Create task</a>
 						</li>
 					</ul>
 				</div>
