@@ -59,6 +59,7 @@ angular.module('codebetter.controllers.mainAppController', [])
 	function checkUserConnection() {
 		if (!navigator.onLine) {
 			alert('Sua conexão com a internet falhou. Verifique sua conexão por favor.');
+			console.log('usuário offline');
 		}
 	}
 
@@ -80,8 +81,13 @@ angular.module('codebetter.controllers.mainAppController', [])
 	}
 
 	function toggleFullscreen() {
+		var changeBtn = document.getElementById('btnFullScreen');
+		
 		if (!document.fullscreenElement &&   
 		  !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+			changeBtn.firstChild.data = 'off full screen';
+			changeBtn.classList.remove('btn-info');
+			changeBtn.classList.add('btn-danger');
 			if (document.documentElement.requestFullscreen) {
 			  document.documentElement.requestFullscreen();
 			} else if (document.documentElement.msRequestFullscreen) {
@@ -92,6 +98,9 @@ angular.module('codebetter.controllers.mainAppController', [])
 			  document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
 			}
 		} else {
+			changeBtn.firstChild.data = 'Full screen';
+			changeBtn.classList.remove('btn-danger');
+			changeBtn.classList.add('btn-info');  
 			if (document.exitFullscreen) {
 			  document.exitFullscreen();
 			} else if (document.msExitFullscreen) {
