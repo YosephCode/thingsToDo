@@ -27,13 +27,17 @@ angular.module('codebetter', [
 				},
 				'mainApp': {
 					templateUrl:'index.html',
-					controller: 'mainAppController'	
+					controller: 'mainAppController'
 				}
 			}
 		})
 		.state('things.toDo', {
 			url:"/toDo",
 			views: {
+        'headerApp': {
+          templateUrl:'index.html',
+          controller: 'headerAppController'
+        },
 				'list': {
 					templateUrl:'templates/list.html',
 					controller: 'listController'

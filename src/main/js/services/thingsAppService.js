@@ -5,7 +5,7 @@ angular.module('codebetter.services.thingsAppService', [
 ])
 .service('thingsAppService', function(bringToDoTasksService, bringDoneTasksService, bringMonthlyTasksService){
 	var self = this;
-	
+
 	self.tasks = bringToDoTasksService;
 	self.done = bringDoneTasksService;
 	self.monthly = bringMonthlyTasksService;
@@ -39,6 +39,6 @@ angular.module('codebetter.services.thingsAppService', [
 	self.createTaskMonthly = function createTaskMonthly(newTask) {
 		self.monthly.$add(newTask);
 	};
-	
+
 	return self;
 });
