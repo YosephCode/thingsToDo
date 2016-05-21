@@ -114,16 +114,14 @@ angular.module('codebetter.controllers.mainAppController', [])
 	}
 
   function notifyMe() {
-    // Let's check if the browser supports notifications
+
     if (!("Notification" in window)) {
       alert("This browser does not support desktop notification");
     }
 
-    // Let's check whether notification permissions have already been granted
     else if (Notification.permission === "granted") {
-      // If it's okay let's create a notification
-      var notification = new Notification('Crie suas tasks!', {
-        body : 'Olá Yoseph! Aqui você pode criar suas tarefas mensais e suas tarefas do dia a dia.',
+      var notification = new Notification('SC Dev Summit!', {
+        body : 'Está tudo muito bonito.',
         icon : '../../img/msg.png',
         tag: 'minhaFoto'
       });
@@ -131,8 +129,8 @@ angular.module('codebetter.controllers.mainAppController', [])
 
     else if (Notification.permission !== 'denied') {
       Notification.requestPermission(function (permission) {
-        if (permission === "granted") {
-          var notification = new Notification("Olá! Espero que goste do produto.");
+        if (permission === 'granted') {
+          var notification = new Notification('Olá! Espero que goste do produto.');
         }
       });
     }
