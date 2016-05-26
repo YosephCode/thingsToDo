@@ -144,7 +144,7 @@ angular.module('codebetter.controllers.mainAppController', [])
 
 	function setScopeFunctions() {
 		$scope.toggleFullscreen = toggleFullscreen;
-    $scope.notifyMe = notifyMe;
+    	$scope.notifyMe = notifyMe;
 	}
 
 	return initializer();
