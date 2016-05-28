@@ -1,13 +1,46 @@
-xdescribe('doneController', function(){
-	// Instancia uma nova versão de meu módulo antes de cada teste
-    beforeEach(module('codebetter.controllers.doneController'));
+describe('doneController', function(){
 
-    var ctrl, scope;
+    beforeEach(angular.mock.module('codebetter.controllers.doneController'));
+    var ctrl, scope, service, mockHttp;
+    var mockthingsAppService = {
+      done : [
+        {
+          'task': 'teste',
+          'priority' : 'critical',
+          'note': 'work test',
+          'dataRegistered': '01/05/2016'
+        },
+        {
+          'task': 'teste2',
+          'priority' : 'low',
+          'note': 'work test2',
+          'dataRegistered': '01/05/2015'
+        }
+      ]
+    };
 
-    beforeEach(inject(function($controller, $rootScope){
-    	scope = $rootScope.$new();
-    	ctrl = $controller('doneController', {
-    		$scope : scope
-    	});
-    }));
+    module('codebetter.controllers.doneController', function($provide) {
+      $provide.value('thingsAppService', mockthingsAppService);
+    });
+
+    beforeEach(
+
+      angular.mock.inject(
+        function($controller, $rootScope){
+          scope = $rootScope.$new();
+
+          ctrl = $controller('doneController', {
+            $scope : scope,
+            thingsAppService : mockthingsAppService
+          });
+        }
+      )
+    );
+
+    describe('on set mode/state', function(){
+      it('should set mode', function(){
+        expect(scope.mode).toEqual('done');
+        expect(scope.state).toEqual(mockthingsAppService.done);
+      });
+    });
 });
