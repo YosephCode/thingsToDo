@@ -1,4 +1,4 @@
-describe('doneController', function(){
+xdescribe('doneController', function(){
 	// Instancia uma nova versão de meu módulo antes de cada teste
     beforeEach(module('codebetter.controllers.doneController'));
 

@@ -1,4 +1,4 @@
-describe('createController', function(){
+xdescribe('createController', function(){
 	// Instancia uma nova versão de meu módulo antes de cada teste
     beforeEach(module('codebetter.controllers.createController'));
 
