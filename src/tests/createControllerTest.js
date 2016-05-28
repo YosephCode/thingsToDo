@@ -3,7 +3,8 @@ describe('createController', function(){
     beforeEach(angular.mock.module('codebetter.controllers.createController'));
     var ctrl, scope, state;
     var mockthingsAppService = {
-      createTaskMonthly: function(){}
+      createTaskMonthly: function(){},
+      createTaskToDo: function(){}
     };
 
     module('codebetter.controllers.createController', function($provide) {
@@ -27,7 +28,8 @@ describe('createController', function(){
 
     describe('on set optionsPriority/newTask', function(){
       it('should set optionsPriority/newTask', function(){
-        var timeStamp = new Date().getTime();
+        var timeStamp = 1464467614626;
+        scope.newTask.dataRegistered = timeStamp;
         expect(scope.optionsPriority).toEqual(['low', 'average', 'high', 'critical']);
         expect(scope.newTask).toEqual({
           task: null,
@@ -48,6 +50,19 @@ describe('createController', function(){
         };
         scope.createTask(taskCreated);
         expect(mockthingsAppService.createTaskMonthly).toHaveBeenCalled();
+        expect(state.go).toHaveBeenCalledWith('things.toDo');
+      });
+    });
+
+    describe('on create task toDo', function(){
+      it('should create toDo task', function(){
+        spyOn(mockthingsAppService, 'createTaskToDo');
+        spyOn(state, 'go');
+        var taskCreated = {
+          type: 'toDo'
+        };
+        scope.createTask(taskCreated);
+        expect(mockthingsAppService.createTaskToDo).toHaveBeenCalled();
         expect(state.go).toHaveBeenCalledWith('things.toDo');
       });
     });
