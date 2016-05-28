@@ -2,7 +2,7 @@ angular.module('codebetter.controllers.listController', [
 	'codebetter.services.thingsAppService'
 ])
 .controller('listController', function($scope, $timeout, thingsAppService) {
-	
+
 	var thingsService = thingsAppService;
 
 	function initializer(){
