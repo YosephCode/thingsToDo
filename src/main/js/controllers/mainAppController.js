@@ -131,7 +131,7 @@ angular.module('codebetter.controllers.mainAppController', [])
 
     else if (Notification.permission !== 'denied') {
       Notification.requestPermission(function (permission) {
-        if (permission === "granted") {
+        if (permission === 'granted') {
           var notification = new Notification("Olá! Espero que goste do produto.");
         }
       });
