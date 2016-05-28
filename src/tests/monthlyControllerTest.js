@@ -1,7 +1,7 @@
 describe('monthlyController', function(){
 
     beforeEach(angular.mock.module('codebetter.controllers.monthlyController'));
-    var ctrl, scope, service, mockHttp;
+    var ctrl, scope;
     var mockthingsAppService = {
       monthly : [
         {

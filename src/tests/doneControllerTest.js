@@ -1,7 +1,7 @@
 describe('doneController', function(){
 
     beforeEach(angular.mock.module('codebetter.controllers.doneController'));
-    var ctrl, scope, service, mockHttp;
+    var ctrl, scope;
     var mockthingsAppService = {
       done : [
         {
