@@ -61,14 +61,14 @@ describe('listController', function(){
     describe('on add remove task', function(){
       it('should add remove task', function(){
         spyOn(mockthingsAppService, 'removeToDo');
-        var taskDone = {
+        var task = {
           'task': 'teste2',
           'priority' : 'low',
           'note': 'work test2',
           'dataRegistered': '01/05/2015'
         };
-        scope.removeToDo(taskDone);
-        expect(mockthingsAppService.removeToDo).toHaveBeenCalledWith(taskDone);
+        scope.removeToDo(task);
+        expect(mockthingsAppService.removeToDo).toHaveBeenCalledWith(task);
       });
     });
 });
