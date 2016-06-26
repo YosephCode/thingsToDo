@@ -5,8 +5,8 @@ angular.module('codebetter.controllers.mainAppController', [])
 
 	var prefix = getPrefixCrossBrowser();
 	var views = 0;
-
-	function initializer() {
+	
+	function initialize() {
 		checkUserConnection();
 		setScopeFunctions();
 
@@ -16,6 +16,7 @@ angular.module('codebetter.controllers.mainAppController', [])
 			onVisibilityPage();
 		}, 100);
 	}
+
 
 	function getPrefixCrossBrowser() {
 		var prefixBrowser = null;
@@ -145,5 +146,5 @@ angular.module('codebetter.controllers.mainAppController', [])
     	$scope.notifyMe = notifyMe;
 	}
 
-	return initializer();
+	return initialize();
 });
