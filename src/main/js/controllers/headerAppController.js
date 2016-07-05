@@ -15,6 +15,7 @@ angular.module('codebetter.controllers.headerAppController', [
 		for (var i = 0; i < monthlyTasks.length; i++){
 			var monthTask = monthlyTasks[i];
 			monthTask.type = 'toDo';
+      monthTask.dataRegistered = new Date().getTime();
 			thingsService.createTaskToDo(monthTask);
 		}
 	}
